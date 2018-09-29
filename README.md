@@ -7,7 +7,7 @@ Remember to install NodeJS and npm before trying to run.
 
 refer to: https://nodejs.org/en/
 
-Once completed head over to a new directory and run the following lines of code:
+Once completed head over to a new directory and run the following lines of code on console or terminal:
 
 ```bash
 npm install
@@ -32,6 +32,26 @@ npm install cookie-parser --save
 ```
 3. Next, Create an app.js file that will contain boilerplate code to make a server run. For those of you in CSC207, think of this as your Controller file.
 4. Now in the app directory create a folder and call it "Views". This will contain all the html templates. Along with views create another folder called "public". This will contain files that will be sent over to the client each time the pages are loaded.
-5.
+5. Now lets head back to the app.js file, inside paste the following lines of code:
+```javascript
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+   res.send('Hello World');
+})
+
+var server = app.listen(8080, function () {
+   var host = 127.0.0.1
+   var port = server.address().port 
+   
+   console.log("Example app listening at http://%s:%s", host, port)
+})
+```
+So here we made our basic web server, and a get request call that sends back the message "Hello World" to the clients web browser. Run this on terminal or console to start your server locally.
+```bash
+node app.js
+```
+6. 
 
 Hope you enjoyed the workshop! Make sure to experiment further with Web applications....
