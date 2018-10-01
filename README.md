@@ -48,11 +48,12 @@ var server = app.listen(8080, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 ```
-So here we made our basic web server, and a get request call that sends back the message "Hello World" to the clients web browser. Run this on terminal or console to start your server locally.
+So here we made our basic web server, and a "get" request call that sends back the message "Hello World" to the clients web browser. Run this on terminal or console to start your server locally, and access it on your browser by going to localhost:8080.
+
 ```bash
 node app.js
 ```
-6. Now to dive a bit deeper.
+6. Now to dive a bit deeper. We are going to create a simple todo list app. Replace the code inside your app.js file and paste the following code.
 ```javascript
 var express = require('express');
 var app = express();
@@ -63,6 +64,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var task =["workshop"];
+
 app.get('/', function (req, res) {
    res.send('Hello World');
 })
@@ -76,7 +78,7 @@ app.post('/add-new-todo', function(req, res){
     var newTask = req.body.newtask;
     //add the new task from the post route into the array
     task.push(newTask);
-    //after adding to the array go back to the root route
+    //after adding to the array go back to the todo route defined above.
     res.redirect("/todo");
 })
 
@@ -87,7 +89,7 @@ var server = app.listen(8080, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 ```
-
+This code adds a post request which essentially helps us send data back to our server. 
 
 7. Also now in the views folder create a file called todo.ejs and paste the following code:
 
@@ -117,9 +119,12 @@ var server = app.listen(8080, function () {
 </html>
 
 ```
-Now again restart the server:
+Now this file you might be thinking looks just like an html file as we showed before. But if you notice inside the body tags there is a for loop which is ejs code that allows us to add code using ejs that will make our life easier to create a webpage template that can be sent to the client.
+
+Again restart the server:
 ```bash
 node app.js
 ```
+
 
 Hope you enjoyed the workshop! Make sure to experiment further with Web applications....
