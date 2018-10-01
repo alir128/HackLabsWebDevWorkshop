@@ -87,9 +87,10 @@ var server = app.listen(8080, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 ```
-Also now in the views folder create a file called todo.ejs.
 
-7.
+
+7. Also now in the views folder create a file called todo.ejs and paste the following code:
+
 ```javascript
 <!DOCTYPE html>
 <html lang="en" >
@@ -116,4 +117,9 @@ Also now in the views folder create a file called todo.ejs.
 </html>
 
 ```
+Now again restart the server:
+```bash
+node app.js
+```
+
 Hope you enjoyed the workshop! Make sure to experiment further with Web applications....
